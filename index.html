@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Max Pearson | Community, Politics & Youth Voice</title>
+  <meta name="description" content="The personal website of Max Pearson, focused on community, politics, youth voice, civic engagement and local issues." />
+
+  <style>
+    :root {
+      --navy: #0f172a;
+      --blue: #1d4ed8;
+      --light-blue: #eff6ff;
+      --text: #1f2937;
+      --muted: #64748b;
+      --border: #e5e7eb;
+      --white: #ffffff;
+      --cream: #f8fafc;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--navy);
+      font-size: 1.2rem;
+    }
+
+    .brand span {
+      color: var(--blue);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 0.94rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    .nav-button {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: 86px 0 72px;
+      background:
+        radial-gradient(circle at top left, rgba(29, 78, 216, 0.14), transparent 38%),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
+      gap: 56px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--light-blue);
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 7vw, 5.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.075em;
+      color: var(--navy);
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 1.18rem;
+      color: #475569;
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid transparent;
+    }
+
+    .button.primary {
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 0 14px 25px rgba(29, 78, 216, 0.2);
+    }
+
+    .button.secondary {
+      background: var(--white);
+      color: var(--navy);
+      border-color: var(--border);
+    }
+
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .portrait-placeholder {
+      min-height: 410px;
+      border-radius: 22px;
+      background:
+        linear-gradient(145deg, rgba(15, 23, 42, 0.78), rgba(29, 78, 216, 0.75)),
+        url('https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      align-items: flex-end;
+      padding: 28px;
+    }
+
+    .portrait-placeholder h2 {
+      max-width: 340px;
+      font-size: 2rem;
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      min-height: 220px;
+      box-shadow: 0 8px 25px rgba(15, 23, 42, 0.05);
+    }
+
+    .card h3 {
+      color: var(--navy);
+      font-size: 1.26rem;
+      margin-bottom: 12px;
+      letter-spacing: -0.025em;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 38px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(15, 23, 42, 0.05);
+    }
+
+    .panel ul {
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .panel li + li {
+      margin-top: 10px;
+    }
+
+    .updates-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .update-item {
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+    }
+
+    .update-item small {
+      color: var(--blue);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .update-item h3 {
+      color: var(--navy);
+      margin: 6px 0;
+    }
+
+    .contact-band {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 30px;
+      padding: 46px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .contact-band h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      margin-bottom: 12px;
+    }
+
+    .contact-band p {
+      color: #cbd5e1;
+      max-width: 680px;
+    }
+
+    footer {
+      padding: 34px 0;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: var(--white);
+      font-size: 0.95rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 860px) {
+      nav ul {
+        display: none;
+      }
+
+      .hero-grid,
+      .split,
+      .contact-band {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 58px;
+      }
+
+      .portrait-placeholder {
+        min-height: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top">Max<span>Pearson</span></a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#priorities">Priorities</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#updates">Updates</a></li>
+          <li><a class="nav-button" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Community • Politics • Youth Voice</div>
+          <h1>Standing up for young people and local communities.</h1>
+          <p>
+            I’m Max Pearson. This site brings together my political activity, community work, democratic engagement projects, and writing on the issues affecting young people and local areas.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#priorities">View priorities</a>
+            <a class="button secondary" href="#contact">Get in touch</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="portrait-placeholder">
+            <h2>Local voice. Serious politics. Practical action.</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container split">
+        <div class="section-heading">
+          <h2>About Max</h2>
+          <p>
+            A short introduction to who you are, what you care about, and why you are involved in politics and civic life.
+          </p>
+        </div>
+        <div class="panel">
+          <p>
+            I am a student with a strong interest in politics, public service, local government and youth representation. My work focuses on helping young people understand the decisions that affect them, encouraging democratic participation, and supporting practical community action.
+          </p>
+          <br />
+          <p>
+            Through school leadership, civic projects and local engagement, I aim to make politics clearer, more accessible and more relevant to people who often feel excluded from it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="priorities">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Priorities</h2>
+          <p>These should be specific enough to show substance, but broad enough to grow with your political activity.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Youth Voice</h3>
+            <p>Making sure young people have the information, confidence and opportunity to engage with politics, elections and civic decision-making.</p>
+          </article>
+          <article class="card">
+            <h3>Local Communities</h3>
+            <p>Focusing on the everyday issues that affect towns, schools, transport, public services and local opportunity.</p>
+          </article>
+          <article class="card">
+            <h3>Political Education</h3>
+            <p>Explaining political ideas, parties, policies and institutions in a clear and balanced way so more people can take part properly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container split">
+        <div class="section-heading">
+          <h2>Current work</h2>
+          <p>Use this section to show actual activity rather than vague ambition.</p>
+        </div>
+        <div class="panel">
+          <ul>
+            <li>Supporting democratic engagement and political education within school and local youth settings.</li>
+            <li>Developing resources that explain parties, elections and public policy in accessible terms.</li>
+            <li>Engaging with local representatives, community figures and civic organisations.</li>
+            <li>Writing and speaking about issues affecting young people, education, opportunity and local democracy.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="updates">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Updates</h2>
+          <p>Add short posts here when you attend events, publish resources, speak at school, meet local representatives or launch projects.</p>
+        </div>
+
+        <div class="updates-list">
+          <article class="update-item">
+            <small>Update</small>
+            <h3>Website launched</h3>
+            <p>A central place for my political activity, civic work and youth voice projects.</p>
+          </article>
+          <article class="update-item">
+            <small>Project</small>
+            <h3>Political education resources</h3>
+            <p>Developing clear, balanced materials to help young people better understand parties, elections and policy choices.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-band">
+          <div>
+            <h2>Get in touch</h2>
+            <p>
+              For community projects, political education, youth voice work, local issues or opportunities to collaborate, contact me below.
+            </p>
+          </div>
+          <a class="button primary" href="mailto:contact@maxpearson.uk">contact@maxpearson.uk</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Max Pearson. All rights reserved.</p>
+      <p>maxpearson.uk</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
